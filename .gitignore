@@ -1,0 +1,5 @@
+venv
+.env
+theneuraltimes_app/blockchain/metadata/
+theneuraltimes_app/migrations/
+db.sqlite3

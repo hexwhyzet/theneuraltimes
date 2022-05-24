@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'catalogue/style.css' %}">
+</head>
+<body>
+<div class="header">
+    The Neural Times
+</div>
+<div class="catalogue">
+    {% for nft in nfts.all %}
+        <div class="card">
+            <div class="upper-layer">
+                <div class="logos">
+                    {% if nft.pictureGenerationSuggestion.newsSuggestion.newsSource.sourceType == 'NYT' %}
+                        <embed src="{% static 'svgs/NYT.svg' %}">
+                    {% elif nft.pictureGenerationSuggestion.newsSuggestion.newsSource.sourceType == 'GUARDIAN' %}
+                        <embed src="{% static 'svgs/Guardian.svg' %}">
+                    {% else %}
+                    {% endif %}
+                </div>
+                <div class="headline">
+                    {{ nft.pictureGenerationSuggestion.newsSuggestion.headline }}
+                </div>
+            </div>
+            <div class="lower-layer">
+                <div class="picture">
+                    <img src={{ nft.pictureGenerationSuggestion.picturePath }}>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

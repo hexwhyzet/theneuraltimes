@@ -1,0 +1,8 @@
+django
+apscheduler
+django-extensions
+nltk
+numpy
+python-decouple
+pyTelegramBotApi
+web3
